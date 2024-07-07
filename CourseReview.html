@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>review Course</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-light">
+
+
+    <div id="success-alert"></div>
+
+    <div class="container">
+
+
+        <div class="row justify-content-center mt-5 align-items-center">
+            <div class="col-5">
+                <div class="card">
+                    <div class="card-header">
+                        Review the course
+                    </div>
+                    <div class="card-body">
+                        <form id="review-course-form">
+                            <div class="mb-3">
+                                <label for="c-r-form-name" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="c-r-form-name" autofocus>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="c-r-form-github_account" class="form-label">github account Url</label>
+                                <input type="url" class="form-control" id="c-r-form-github_account" >
+                            </div>
+
+
+                            <div class="mb-3">
+                                <label for="c-r-form-twitter_account" class="form-label">twitter account Url</label>
+                                <input type="url" class="form-control" id="c-r-form-twitter_account" >
+                            </div>
+
+                            
+                            <div class="mb-3">
+                                <label for="c-r-form-linkedin_account" class="form-label">linkedin account Url</label>
+                                <input type="url" class="form-control" id="c-r-form-linkedin_account" >
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="c-r-form-body" class="form-label">body</label>
+                                <textarea class="form-control" id="c-r-form-body"></textarea>
+                            </div>
+                            
+                            <button id="submit-course-review-btn" type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+             
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+</body>
+<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<script src="./node_modules/axios/dist/axios.min.js"></script>
+
+<script src="./courseReview.js"></script>
+
+
+
+</html>

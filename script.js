@@ -183,7 +183,7 @@ const id = urlParams.get('id')
 }
 
 
-//default value
+//alert
 function showAlert(msg,type="success"){
 const alertPlaceholder = document.getElementById('success-alert')
 const appendAlert = (message, type) => {
