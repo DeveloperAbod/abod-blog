@@ -4,16 +4,7 @@ let currentPage = 1
 let lastPage = 1
 let pageCountHandle =true
 
-
-
-
-
-
-
 setUpUi()
-
-
-
 
 function getPosts(reload = true ,page = 1){
     axios.get(`${baseUrl}/posts?limit=3&page=${page}`)
@@ -192,10 +183,6 @@ const id = urlParams.get('id')
 }
 
 
-
-
-
-
 //default value
 function showAlert(msg,type="success"){
 const alertPlaceholder = document.getElementById('success-alert')
@@ -219,11 +206,6 @@ setTimeout(()=>{
 
 
 }
-
-
-
-
-
 
 
 function setUpUi(){
@@ -304,7 +286,7 @@ function logout(){
 document.getElementById('login-form').addEventListener('submit',(event)=>{
       //loading btn
       document.getElementById('submit-login-btn').innerHTML =`<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>Loading...`
-
+      document.getElementById('submit-login-btn').disabled = true;
       // end loading btn
     event.preventDefault();
     const username = document.getElementById('login_username').value
@@ -330,6 +312,7 @@ document.getElementById('login-form').addEventListener('submit',(event)=>{
         showAlert(error.response.data.message,"danger")
     }).finally(() => {
         document.getElementById('submit-login-btn').innerHTML =`Login`
+        document.getElementById('submit-login-btn').disabled = false;
     });
 }) 
 
@@ -343,7 +326,7 @@ document.getElementById('register-form').addEventListener('submit',(event)=>{
     event.preventDefault();
       //loading btn
       document.getElementById('submit-register-btn').innerHTML =`<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>Loading...`
-
+      document.getElementById('submit-register-btn').disabled = true;
       // end loading btn
 
     const name = document.getElementById('registerName').value
@@ -382,6 +365,8 @@ document.getElementById('register-form').addEventListener('submit',(event)=>{
         showAlert(error.response.data.message,"danger")
     }).finally(() => {
         document.getElementById('submit-register-btn').innerHTML =`Register`
+      document.getElementById('submit-register-btn').disabled = false;
+
     });
 }) 
 
@@ -393,7 +378,7 @@ document.getElementById('create-post-form').addEventListener('submit',(event)=>{
     event.preventDefault();
     //loading btn
     document.getElementById('create-post-button').innerHTML =`<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>Loading...`
-
+    document.getElementById('create-post-button').disabled = true;
     // end loading btn
 
     // postImage
@@ -434,6 +419,8 @@ document.getElementById('create-post-form').addEventListener('submit',(event)=>{
         showAlert(error.response.data.message,"danger")
     }).finally(() => {
         document.getElementById('create-post-button').innerHTML =`Create`
+        document.getElementById('create-post-button').disabled = false;
+
     });
 }) 
 
@@ -444,7 +431,8 @@ document.getElementById('update-post-form').addEventListener('submit',(event)=>{
     event.preventDefault();
     //loading btn
     document.getElementById('update-post-button').innerHTML =`<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>Loading...`
-
+    document.getElementById('update-post-button').disabled = true;
+    
     // end loading btn
 
     // postImage
@@ -487,13 +475,16 @@ document.getElementById('update-post-form').addEventListener('submit',(event)=>{
         showAlert(error.response.data.message,"danger")
     }).finally(() => {
         document.getElementById('update-post-button').innerHTML =`update`
+        document.getElementById('update-post-button').disabled = false;
+
     });
 }) 
 
 
 function createCommentClicked(id){
     document.getElementById('add-comment-button').innerHTML =`<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>Loading...`
-
+    document.getElementById('add-comment-button').disabled = true;
+    
     const commentBody =document.getElementById("comment-input").value
     let params ={
         "body":commentBody
@@ -512,6 +503,8 @@ function createCommentClicked(id){
         showAlert(error.response.data.message,"danger")
     }).finally(() => {
         document.getElementById('add-comment-button').innerHTML =`send`
+        document.getElementById('add-comment-button').disabled = false;
+
     });
 
 
@@ -545,7 +538,9 @@ function deletePostBtnClicked(post){
 function confirmDelete(){
      //loading btn
      document.getElementById('delete-post-button').innerHTML =`<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>Loading...`
-    const postId =  document.getElementById('delete-post-id').value
+     document.getElementById('delete-post-button').disabled = true;
+    
+     const postId =  document.getElementById('delete-post-id').value
     let token = localStorage.getItem("token")
     let headers ={
         "authorization":`Bearer ${token}`
@@ -561,6 +556,8 @@ function confirmDelete(){
         showAlert(error.response.data.message,"danger")
     }).finally(() => {
         document.getElementById('delete-post-button').innerHTML =`delete`
+        document.getElementById('delete-post-button').disabled = false;
+
     });
 }
 
