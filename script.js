@@ -217,8 +217,9 @@ function setUpUi(){
     const navUsername =  document.getElementById('nav-username')
     const navAvatar =  document.getElementById('nav-avatar')
     const token = localStorage.getItem("token")
-    const user = localStorage.getItem("user")
+    const profile =  document.getElementById('profile-nav')
 
+    
     if(token == null){ // user is guest
         loginBtn.style.display = "flex"
         registerBtn.style.display = "flex"
@@ -226,6 +227,9 @@ function setUpUi(){
         addPostBtn.style.display = "none"
         navUsername.style.display = "none"
         navAvatar.style.display = "none"
+        profile.style.display = "none"
+
+        
 
     }else{
       loginBtn.style.display = "none"
@@ -234,6 +238,8 @@ function setUpUi(){
       addPostBtn.style.display = "flex"
       navUsername.style.display = "flex"
       navAvatar.style.display = "flex"
+      profile.style.display = "flex"
+
         //  
         const user =  getCurrentUser()
         navUsername.innerHTML = user.username
