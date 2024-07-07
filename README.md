@@ -1,6 +1,6 @@
 # abod blog
  blog using api and js   (tarmeez api)
- [1]: https://wikipedia.org            "live preview"
+ https://abod-blog.netlify.app           "live preview"
  
  # images
 ![1](https://github.com/DeveloperAbod/abod-blog/assets/98879580/24d570d1-65a0-42c2-9f47-28a003bd646c)
